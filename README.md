@@ -1,5 +1,7 @@
 ![Escape 2020 Logo](escape2020_logo.png)
 
+[![made-with-python](https://img.shields.io/badge/Made%20with-Python-orange.svg)](https://www.python.org/)
+
 # Escape 2020
 A story-based game. Can you open the vaccine center and avoid getting COVID?
 
@@ -20,9 +22,21 @@ Escape 2020 is a game and with this there are a few key features it offers:
 
 ## Installation
 
+If `git` is installed on your machine, you may clone the repository on your local machine by running the command:
+```
+git clone https://github.com/Allegheny-Ethical-CS/escape2020.git
+```
+
+You can then `cd` (or enter) the project root folder:
+```
+cd escape2020
+```
+
+The project can either be run locally or by installing `Docker`. More detail is provided in the next section of the README, which discusses running the game.
+
 ## Running the Game
 
-There are a few different ways in which the game can be run! These methods including running the Python program locally on your computer or using a Docker container.
+After completing the installation steps to clone the project locally, there are a few different ways in which the game can be run! These methods including running the Python program locally on your computer or using a Docker container.
 
 ### Running with local Python Installation
 
@@ -73,8 +87,16 @@ The COVID-19 pandemic has brought up many new issues and discussions in the area
 A similar discussion could arise in the area of vaccines. What are the ethical societal implications that come with choosing to get or skip the vaccine?
 
 ## Future Work
-There are a number of different tasks
+There are a number of different tasks that could be completed in the future to enhance the project. Some current ideas include:
+- Adding more story elements, make the plot more complex.
+- Tracking the number of individuals that the player came in contact with. Provide a "COVID contact tracing report" as output at the end of the project.
+- Adding mini-games to the current game. For instance, a maze mini-game could be added when you are trying to get through a certain portion of the city.
 
 ## Contributing
+We encourage you to contribute if want to take on any of the tasks mentioned as apart of the Future Work section or enhance the game on your own! Please be respectful when contributing to this project's community!
 
 ## Contact
+
+If you have any questions, concerns, or comments for this project, please contact:
+- [Christian Lussier](https://github.com/lussierc) -- lussierc@allegheny.edu
+- [Dr. Bonham-Carter](https://github.com/obonhamcarter) [Faculty Advisor] -- obonhamcarter@allegheny.edu
