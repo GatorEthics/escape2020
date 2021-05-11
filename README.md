@@ -24,15 +24,35 @@ Escape 2020 is a game and with this there are a few key features it offers:
 
 There are a few different ways in which the game can be run! These methods including running the Python program locally on your computer or using a Docker container.
 
+### Running with local Python Installation
+
+If you have [Python](https://www.python.org/downloads/) installed locally, you can run the project with ease, without installing any other external tools or library. It is recommended that a `python3` (a version of Python higher than 3) is utilized.
+
+*To run the game, use the following command:*
+```
+python3 src/escape2020.py
+```
+
+
 ### Running with Docker
 
 The program can be run within a Docker Container using Docker Desktop. For more information on how to install this tool, view [this](https://www.docker.com/) resource.
 
 There are builder scripts for each type of machine. First ensure you are in the main project directory, the same one in which this README resides. To run the `Mac OS` version for instance, you would use the following commands:
 
-1. `sh ./docker/build_macOS.sh` -- builds the container
-2. `sh ./docker/run_macOS.sh` -- enters the container
-3. `python3 src/escape2020.py` -- run the program
+1. To build the container, use the following command:
+```
+sh ./docker/build_macOS.sh
+```
+2. To enter the newly built Docker container, use the following command:
+```
+sh ./docker/run_macOS.sh
+```
+
+3. After entering the container, run the program using the following command:
+```
+python3 src/escape2020.py
+```
 
 #### OS-specific scripts to build and run containers
 The following bash scripts simplify building the container.
@@ -43,7 +63,7 @@ The following bash scripts simplify building the container.
 | Linux   	|  `./docker/build_linux.sh` | `./docker/run_linux.sh`  |
 | Windows 	|  `docker/build_win.bat` 		|  `docker/run_win.bat` |
 
-These files may be found in the directory, `docker/` and the builder require a copy of `Dockerfile` to run.
+These files may be found in the `docker/` directory and the builder requires a copy of `Dockerfile`, which can be found in the main directory of the project, to run.
 
 ## Related Research
 
