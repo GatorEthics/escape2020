@@ -27,12 +27,19 @@ class color:
 
 #The story is broken into sections, starting with "intro"
 def intro():
-    print("You have just awoken and it is 8AM! Today is finally the day! After living in near-isolation during the COVID-19 pandemic, the vaccine is finally available! As the head of your town's COVID response team, it is your job to open the doors to the vaccine distribution center for the public! The doors are supposed to open at 10AM and it is currently 8AM. You have about 100,000 residents in your town and have received enough for all of them to get the vaccine. Cases have been on the rise lately and the vaccine should help slow them, so you better get to the vaccine center and open the doors as soon as possible to help stop the spread, while trying to avoid contracting the virus yourself.")
+    global cases
+
+    print("You have just awoken and it is 8AM! Today is finally the day! After living in near-isolation during the COVID-19 pandemic, the vaccine is finally available! As the head of your town's COVID response team, it is your job to open the doors to the vaccine distribution center for the public! The doors are supposed to open at 10AM and it is currently 8AM. You have about 50,000 residents in your town and have received enough for all of them to get the vaccine. Cases have been on the rise lately and the vaccine should help slow them, so you better get to the vaccine center and open the doors as soon as possible to help stop the spread, while trying to avoid contracting the virus yourself. You need to open the doors to the vaccine center before over 50% of the town contracts the virus.")
     time.sleep(1)
     option_find_morning_transportation()
 
+    cases += random.randint(78,100)
+
+    print("Current number of cases: ", cases)
+
 
 def option_find_morning_transportation():
+    global cases
     print("After enjoying a brief breakfast, showering, and petting your dog, it is time to start the day! It's already 9AM and your car is still in the shop! That might make it a little bit harder to get to work :(. Let's get on the road! How do you want to get to the vaccine center?: ")
 
     print("\tA. Car-pool (maskless) with your co-worker\n\tB. Take the bus\n\tC. Take the subway")
@@ -46,9 +53,15 @@ def option_find_morning_transportation():
     else:
         print("error")
 
+    cases += random.randint(3000, 5500)
+
+    print("Current number of cases: ", cases)
+
 def option_transportation_carpool():
     global covid # get the global var
     global mask
+    global cases
+
     print("You hear loud honking outside of your house! Alright, your co-worker Nathan just pulled up to take you to work. Oh no! You get in the car and notice Nathan is not wearing his mask, he must be excited that it is vaccine distribution day! Will you: ")
     time.sleep(1)
     print("\tA. Put on your mask\n\tB. Wear no mask\n\tC. Put on your mask and ask Nathan to wear his")
@@ -90,7 +103,14 @@ def option_transportation_carpool():
     else:
         print("error")
 
+    cases += random.randint(900,2000)
+    print("Current number of cases: ", cases)
+
     print("Nathan starts the car up and says, \"Let's get going.\" You can see your town's skyline approaching from afar, but all of a sudden Nathan's car starts to make a strange noise. Pulling off to the side of the road, Nathan goes \"It must be the radiotor again! I just got it replaced last week, I guess my mechanic doesn't know what he's doing.\" Looking frustrated, he gets out of the car to see what's going on under the hood while you wonder why you chose to carpool with Nathan to yourself.")
+
+    cases += random.randint(1500,2000)
+    print("Current number of cases: ", cases)
+
     print("You pull out your phone and look at the current time. It is 8:30AM already after the stop and you have to open the doors to the vaccine center at 10AM. How will you try to get there in time: ")
     time.sleep(1)
     print("\tA. Call another co-worker\n\tB. Try to hitch a ride\n\tC. Call your Mom")
