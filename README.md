@@ -79,8 +79,6 @@ The following bash scripts simplify building the container.
 
 These files may be found in the `docker/` directory and the builder requires a copy of `Dockerfile`, which can be found in the main directory of the project, to run.
 
-## Related Research
-
 ## Ethical Discussions
 The COVID-19 pandemic has brought up many new issues and discussions in the area of ethics. The biggest ethical problem COVID-19 has brought about is that of wearing a mask. There are those who do not want to wear a mask, claiming the virus is a hoax or that a mask won't protect them. Then there are those who wear masks. Are you an unethical person if you don't wear a mask? Some might say yes. Not only do you have a higher risk of getting the virus yourself, but you also could spread it others, most importantly the high-risk population. That doesn't seem very ethical. Wearing a mask is the ethical thing to do, because it helps keep everyone safe.
 
