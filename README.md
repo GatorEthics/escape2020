@@ -95,6 +95,8 @@ There are a number of different tasks that could be completed in the future to e
 ## Contributing
 We encourage you to contribute if want to take on any of the tasks mentioned as apart of the Future Work section or enhance the game on your own! Please be respectful when contributing to this project's community!
 
+Please read the [Project Contribution Guide](https://github.com/Allegheny-Ethical-CS/blob/escape2020/contributing.md) before committing to this project so you can get a feel for our standards and workflow.
+
 ## Contact
 
 If you have any questions, concerns, or comments for this project, please contact:
