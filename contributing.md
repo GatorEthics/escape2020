@@ -34,7 +34,7 @@ The development team uses the [GitHub Flow Model](https://guides.github.com/intr
 to guide our engineering of this tool. We invite you to also conform to the
 Github model as you make a contribution. Once you have made some new changes and
 would like the project maintainers to merge them into the project, we encourage
-you to go ahead and open a [pull request](https://github.com/Allegheny-Ethical-CS/GatorMiner/pulls)
+you to go ahead and open a [pull request](https://github.com/Allegheny-Ethical-CS/escape2020/pulls)
 on the GitHub repository. Please follow the provided pull request template and
 describe the new feature or bug fix that you are proposing with the necessary
 information. The proposed change should not break the existing test cases and/or
