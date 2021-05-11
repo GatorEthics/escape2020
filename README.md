@@ -9,6 +9,20 @@ Allegheny College Ethics Technical Leaders - Mozilla Grant
 
 *Day-one Contributors:* Christian Lussier & Dr. Bonham-Carter
 
+## Table of Contents
+
+- [About](#about)
+- [Features](#features)
+- [Installation](#installation)
+- [Running the Game](#running-the-game)
+   - [Running with local Python installation](#running-with-local-python-installation)
+   - [Running with Docker](#running-with-docker)
+- [Ethical Discussion](#ethical-discussions)
+- [Future Work](#future-work)
+- [Contributing](#contributing)
+- [Contact](#contact)
+
+
 ## About
 Escape 2020 is a story-based game, where players are vaccine center managers and must get to the center on time without contracting the virus. There are a number of randomized scenarios and story events that are based on user responses to story-based prompts given throughout the game. One idea the game focuses upon is that of wearing a mask and the implications of what happens when people don't. Not only can forgoing a mask be detrimental to ones own health, but it can also impact those around them as the virus can spread with ease.
 
