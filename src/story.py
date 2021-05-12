@@ -25,11 +25,22 @@ class color:
     UNDERLINE = "\033[4m"
     END = "\033[0m"
 
+def update_time_cases(new_time):
+    """Moves the game's time and number of positive cases forward."""
+
+    global tod
+    global cases
+
+    cases += random.randint(3000, 5500)
+    tod = new_time
+
+    print(color.BOLD, color.YELLOW, "* It is now", tod, "!", "\n* The current number of cases is: ", cases, color.END, color.END)
+
 #The story is broken into sections, starting with "intro"
 def intro():
     global cases
 
-    print("You have just awoken and it is 8AM! Today is finally the day! After living in near-isolation during the COVID-19 pandemic, the vaccine is finally available! As the head of your town's COVID response team, it is your job to open the doors to the vaccine distribution center for the public! The doors are supposed to open at 10AM and it is currently 8AM. You have about 50,000 residents in your town and have received enough for all of them to get the vaccine. Cases have been on the rise lately and the vaccine should help slow them, so you better get to the vaccine center and open the doors as soon as possible to help stop the spread, while trying to avoid contracting the virus yourself. You need to open the doors to the vaccine center before over 50% of the town contracts the virus.")
+    print("You have just awoken and it is 8AM! Today is finally the day! After living in near-isolation during the COVID-19 pandemic, the vaccine is finally available! A new, more contagious variant of the virus has been getting people sick for weeks. As the head of your town's COVID response team, it is your job to open the doors to the vaccine distribution center for the public! The doors are supposed to open at 10AM and it is currently 8AM. You have about 100,000 residents in your town and have received enough for all of them to get the vaccine. Cases have been on the rise lately and the vaccine should help slow them, so you better get to the vaccine center and open the doors as soon as possible to help stop the spread, while trying to avoid contracting the virus yourself. You need to open the doors to the vaccine center before over 50% of the town contracts the virus or else it could run rampant.")
     time.sleep(1)
     option_find_morning_transportation()
 
@@ -40,7 +51,10 @@ def intro():
 
 def option_find_morning_transportation():
     global cases
-    print("After enjoying a brief breakfast, showering, and petting your dog, it is time to start the day! It's already 9AM and your car is still in the shop! That might make it a little bit harder to get to work :(. Let's get on the road! How do you want to get to the vaccine center?: ")
+    print("After enjoying a brief breakfast, showering, and petting your dog, it is time to start the day! Your car is still in the shop! That might make it a little bit harder to get to work :(. Let's get on the road! How do you want to get to the vaccine center?: ")
+
+    update_time_cases("8:30AM")
+    print("Wow! There was a spike in cases, people must be out and about now, we can anticipate the virus will spread rapidly. A new, more contagious strain of COVID is now running rampant.")
 
     print("\tA. Car-pool (maskless) with your co-worker\n\tB. Take the bus\n\tC. Take the subway")
     choice = input(">>> ") #Here is your first choice.
@@ -53,9 +67,7 @@ def option_find_morning_transportation():
     else:
         print("error")
 
-    cases += random.randint(3000, 5500)
 
-    print("Current number of cases: ", cases)
 
 def option_transportation_carpool():
     global covid # get the global var
@@ -89,11 +101,13 @@ def option_transportation_carpool():
         print("\tA. Grab your coffee \n\tB. Turn around and leave")
         nested_choice = input(">>> ") #Here is your first choice.
         if nested_choice.upper() == "A":
-            print("Well, you do need your morning coffee. If not you'll be grouchy and tired all day. You approach the coffee station, where a young lady is preparing her drink maskless. Undeterred, you fill your cup of coffee up and put some sugar in, then checkout without incident. You walk outside and unfortunately it has suddenly started raining, so you race to Nathan's car and hop in, ready to hit the road.")
+            print("Well, you do need your morning coffee. If not you'll be grouchy and tired all day. You approach the coffee station, where a young lady is preparing her drink maskless. Undeterred, you fill your cup of coffee up and put some sugar in. Then head over to checkout and realize the line is really long. You wait almost 10 minutes in the line. You walk outside and unfortunately it has suddenly started raining, so you race to Nathan's car and hop in, ready to hit the road.")
             if mask == True:
                 covid += 2
             else:
                 covid += 7.5
+            update_time_cases("8:50AM")
+
         elif nested_choice.upper() == "B":
             print("You head back out to the car and get inside.")
         else:
@@ -103,22 +117,23 @@ def option_transportation_carpool():
     else:
         print("error")
 
-    cases += random.randint(900,2000)
-    print("Current number of cases: ", cases)
-
     print("Nathan starts the car up and says, \"Let's get going.\" You can see your town's skyline approaching from afar, but all of a sudden Nathan's car starts to make a strange noise. Pulling off to the side of the road, Nathan goes \"It must be the radiotor again! I just got it replaced last week, I guess my mechanic doesn't know what he's doing.\" Looking frustrated, he gets out of the car to see what's going on under the hood while you wonder why you chose to carpool with Nathan to yourself.")
 
-    cases += random.randint(1500,2000)
-    print("Current number of cases: ", cases)
+    update_time_cases("8:45AM")
 
-    print("You pull out your phone and look at the current time. It is 8:30AM already after the stop and you have to open the doors to the vaccine center at 10AM. How will you try to get there in time: ")
+    print("You pull out your phone and look at the current time. You have to open the doors to the vaccine center at 10AM. How will you try to get there in time: ")
     time.sleep(1)
     print("\tA. Call another co-worker\n\tB. Try to hitch a ride\n\tC. Call your Mom")
     choice = input(">>> ") #Here is your first choice.
     if choice.upper() == "A":
-        print("You look through your contacts list, looking to see which of your co-workers might be able to grab you on their way to the downtown vaccine distribution center. You call 3 of your co-workers, with no success. Nancy is already downtown getting breakfast, Jason is waiting at the vaccine center, and Karen didn't even answer. Nathan gets back in the car and says, \"Is anybody able to pick us up?.\" You shake your head, no. An hour passes and it is now 9:30AM. Finally, you think to yourself that Braeden probably isn't even downtown yet, that guy is always running late, so you give him a call. Sure enough, he isn't even in town yet and will pass you in about 15 minutes, where he tells you that he can pick you up.")
+        print("You look through your contacts list, looking to see which of your co-workers might be able to grab you on their way to the downtown vaccine distribution center. You call 3 of your co-workers, with no success. Nancy is already downtown getting breakfast, Jason is waiting at the vaccine center, and Karen didn't even answer. Nathan gets back in the car and says, \"Is anybody able to pick us up?.\" You shake your head, no. It is now 9:30AM. Finally, you think to yourself that Braeden probably isn't even downtown yet, that guy is always running late, so you give him a call. Sure enough, he isn't even in town yet and will pass you in about 15 minutes, where he tells you that he can pick you up.")
+        update_time_cases("9:30AM")
+        print("Finally you see Braeden pull up and you get in his car quickly as it is has just started to rain. He drives you downtown where he drops you off across the street from the vaccine center, because he has to go park. You begin to head to the vaccine center.")
+        update_time_cases("9:55AM")
+        old_lady()
     elif choice.upper() == "B":
         print("Nathan gets back in the car and goes, \"Well I am calling Triple A.\" Whatever, you think. You get out of the car and put your thumb to the sky. It's time to try and catch a ride. After waiting about 30 minutes, watching traffic whip by, a beat-up green truck pulls over. You go up to the window and a maskless man wearing a hat hollers, \"You looking for a ride bud?\" Well this isn't exactly the ride you were looking for, you think to yourself, but you get in nonetheless. You sit down on the crusty old, car seat.")
+        update_time_cases("9AM")
         if mask == True:
             print("\"Why don't you take off that silly old mask?\", the man says to you, as he coughs violently.")
         else:
@@ -135,11 +150,14 @@ def option_transportation_carpool():
             covid += 30
             mask = False
             print("The man speeds downtown, his rickety truck rattling as it rolls down the highway. The man continues coughing violently, hopefully he isn't sick with COVID. He drops you off outside of a McDonald's downtown, where he is going to grab breakfast, and now you are a mile or so from the vaccine distribution center.")
+        update_time_cases("9:15AM")
     elif choice.upper() == "C":
         mask = True
         print("Well, mom isn't a bad choice. Let's see if she answers you think to yourself as you call her. Luckily she does and you beg for her to come pick you up on the side of the road so you can get the town it's much needed vaccine. \"Really?\", she says, \"This is so typical of you! But I will come get you, be careful and don't get near traffic.\" Nathan gets back in the car dejected and says, \"Well, I am calling Triple A.\" Luckily your mom is on the way.")
         print("About 30 minutes later, your mom pulls up behind you on the highway. You get out the car and embrace her, then get in the car and head downtown. \"Well, I will give you credit this time, at least you left for work early it's only 9AM. But really, you got a ride with Nathan? His car looked like it could fall apart at anytime!\" You roll your eyes and think, well I guess I deserve it.")
+        update_time_cases("9AM")
         print("Since you have an hour before the center is supposed to open, your mom takes you to Starbucks and buys you an orange juice along with your favorite breakfast sandwich. After giving your Mom an awkward in-car hug, you get out right in front of the vaccine center.")
+        update_time_cases("9:30AM")
         vaccine_center()
     else:
         print("error")
@@ -148,12 +166,12 @@ def option_transportation_carpool():
 def option_transportation_bus():
     global covid # get the global var
     global mask
-    # people at bus station without masks -- should you wait away from the bus and risk missing it?
-    # getting on the bus minigame
+
     print("Well, the bus is always makes for an interesting trip, you think as you head out the door. You begin your walk to the bus stop, luckily it's a brisk but sunny morning, some of the perfect walking weather. Listening to your favorite song in your headphones, you approach the bus station and are surprised to see there are about 20 people waiting. Normally, there is almsot nobody there, there is already a line forming for the bus which will fill up quick! You observe that 14 of the bus riders waiting in line are not wearing masks. Will you:")
     time.sleep(1)
     print("\tA. Get in line\n\tB. Wait away from the bus and risk missing it")
     choice = input(">>> ") #Here is your first choice.
+    update_time_cases("8:45AM")
     if choice.upper() == "A":
         print("Well, it is probably smart to get in line now, that bus will fill up quick and you don't want to miss it. You walk up to the bus station and eventually the bus arrives. Unfortunately there are a lot of people without masks on the bus but at least you have a ride into work. Will you:")
         time.sleep(1)
@@ -185,6 +203,7 @@ def option_transportation_bus():
             print("The bus driver, waves at you to get on the bus as you walk up. You are the last to board. Unfortunately there are a lot of people without masks on the bus but at least you have a ride into work.")
     else:
         print("error")
+    update_time_cases("9AM")
     downtown()
 
 def option_transportation_subway():
@@ -194,6 +213,7 @@ def option_transportation_subway():
     time.sleep(1)
     print("\tA. Put on your mask\n\tB. Wear no mask")
     choice = input(">>> ") #Here is your first choice.
+    update_time_cases("8:45AM")
     if choice.upper() == "A":
         print("You put on your mask and join the crowd of people waiting for the subway.")
         covid += 5
@@ -210,23 +230,36 @@ def option_transportation_subway():
     choice = input(">>> ") #Here is your first choice.
     if choice.upper() == "A":
         print("You get off the subway and soon realize you are nowhere near where you intended to go. You are in the heart of downtown.")
+        update_time_cases("9AM")
         downtown()
     elif choice.upper() == "B":
         print("You decide to wait it out.")
-        rand_loc = random.randint(0,1)
+        rand_loc = random.randint(0,3)
         if rand_loc == 0:
             print("The next stop, the subway conductor announces that you are on the other side of town from where you need to be. You know the subway will make another loop back up to the suburbs soon and frantically exit it. You will walk.")
+            update_time_cases("9AM")
             downtown()
-        else:
+        elif rand_loc == 3:
             print("You arrive two streets away from the vaccine distribution center with lots of time to spare. You walk up the steps and out of the subway station, only to see that it is raining!")
+            update_time_cases("8:45AM")
             old_lady()
+        else:
+            print("You arrive in the heart of downtown, far from the vaccine center.")
+            update_time_cases("9AM")
+            downtown()
 
 
 
 def vaccine_center():
     global covid
+    global cases
 
-    print("\"What a day\", you think to yourself as you walk up to the doors of the vaccine distribution center. There are already a few hundred socially-distanced people outside of the distribution center and they begin cheering upon your arrival! Finally after over a year of living in the pandemic, it is time to stop the spread - for good. You open up the doors to the vaccine center and begin allowing people in. Despite everything that happened, today is a great day!")
+    print("\"What a day\", you think to yourself as you walk up to the doors of the vaccine distribution center. There are already a few hundred socially-distanced people outside of the distribution center and they begin cheering upon your arrival!\nFinally after over a year of living in the pandemic, it is time to stop the spread - for good. You open up the doors to the vaccine center and begin allowing people in. Despite everything that happened, today is a great day!")
+
+    if cases >= 25000:
+        print("Unfortunately you took too long to get to the vaccine center, more than half of the town contracted the virus")
+    else:
+        print("Good thing you got to the vaccine center quickly, the majority of the town remains uninfected.")
 
     covid_status = virus_status(covid)
 
@@ -236,6 +269,8 @@ def vaccine_center():
         print("\n\nYou opened the doors to the Vaccine Center, but contracted the virus. You saved the community, but could not save yourself, maybe you should have worn your mask more.")
     else:
         print("\n\nYou Opened the Doors to the Vaccine Center and didn't contract the virus. You saved the community and kept yourself save in the process. Now, let's get that vaccine!")
+
+
 
 def downtown():
     global covid # get the global var
@@ -258,6 +293,7 @@ def downtown():
     time.sleep(1)
     print("\tA. Push through to the front of the crowd \n\tB. Get to the other side of the crowd and keep moving")
     choice = input(">>> ") #Here is your first choice.
+    update_time_cases("9:10AM")
     if choice.upper() == "A":
         print("There are even more maskless people towards the front of the crowd, you approach the doors of the building the people are crowded around and peer over shoulders to see what is going on. You can't believe it, but Elon Musk is in the lobby of the hotel! You ask someone nearby what is going on and they reply, \"Elon is here to give a free 45-minute talk to the town about Dogecoin today! Anyone can go, the doors open in a minute!\" Hmm, you think to yourself. Elon Musk is here, should you go try and see the talk? It's only 9AM, but you have to open the doors at 10AM! Will you: ")
         covid += 5
@@ -267,11 +303,13 @@ def downtown():
         if choice.upper() == "A":
             covid += 5
             print("You go in and listen to Elon speak. He always has something interesting to say and you never thought he would come to your town. Thank goodness you went, because you got free Dogecoin too!")
-            print("It is now 9:50AM and there is no way you make it on time unless you run! You begin running down the road, but trip and fall, injuring your knee. It looks like the COVID center will be opening late.")
+            print("It is now 9:45AM and there is no way you make it on time unless you run! You begin running down the road, but trip and fall, injuring your knee. It looks like the COVID center will be opening late.")
+            update_time_cases("9:45AM")
             vaccine_center()
         elif choice.upper() == "B":
             covid += 2.5
             print("You go in and listen to Elon speak. He always has something interesting to say and you never thought he would come to your town. About 20 minutes into the talk, you look at your watch and realize it is time to go! You have to be on time to open the doors!")
+            update_time_cases("9:30AM")
         else:
             print("You love Elon, but the right move would be to get going and open the doors to the vaccine center.")
     else:
@@ -283,17 +321,22 @@ def downtown():
         choice = input(">>> ") #Here is your first choice.
         if choice.upper() == "A":
             print("You wait a minute or so and the hospital director walks down the stairs, into the hospital lobby. Luckily you two know each other as you are both on the town's COVID response team. \"Ahh, I heard why you are here, come with me and we will grab your syringe applicators\", she says. You walk into the back of the hospital and grab the three large boxes of syringe applicators, then head out on your way. As you walk out with the hospital director, she offers to give you a ride over to the vaccine distribution center. You gladly oblige, especially now that it is raining outside. She quickly drives you over to the vaccine center, and you arrive with time to spare.")
+            update_time_cases("10AM")
+            vaccine_center()
         elif choice.upper() == "B":
             print("Well, you can always get the supplies later, opening the doors is probably more important.")
+            update_time_cases("9:50AM")
         elif choice.upper() == "C":
             print("\"I don't know what you are talking about, but you need to stop yelling or I will call hospital security to deal with you!\", the receptionist says. Disgruntled, you walk outside of the hospital.")
 
-        print("You walk outside and notice that the streets are almost barren, the weather has gotten much worse during the time you were inside and the clouds look darker than before. You begin your trek down the street and it begins to rain. It is almost 9:45 after all of your stops! Will you?: ")
+        print("You walk outside and notice that the streets are almost barren, the weather has gotten much worse during the time you were inside and the clouds look darker than before. You begin your trek down the street and it begins to rain. It is almost 9:55AM after all of your stops! Will you?: ")
+        update_time_cases("9:55AM")
         time.sleep(1)
         print("\tA. Sprint down the slick streets in the rain \n\tB. Walk through the desolate streets and get soaked \n\tC. Get on a nearby bus you see")
         choice = input(">>> ") #Here is your first choice.
         if choice.upper() == "A":
             print("You begin sprinting down the streets and are making good time as the rain begins to pour down harder. The vaccine distribution center is close by, only a few streets away! You keep running fast and as you cross the street, you run over a street gate. All of a sudden you slip, badly hurting your knee. It looks like you will be going back to the hospital instead of to the vaccine center, the cases will likely rise.")
+            update_time_cases("10:30AM")
         elif choice.upper() == "B":
             print("You continue your trek through the rain, eventually nearing the vaccine distribution center.")
         elif choice.upper() == "C":
