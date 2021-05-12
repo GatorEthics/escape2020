@@ -36,11 +36,10 @@ def update_time_cases(new_time):
 
     print(color.BOLD, color.YELLOW, "* It is now", tod, "!", "\n* The current number of cases is: ", cases, color.END, color.END)
 
-#The story is broken into sections, starting with "intro"
 def intro():
     global cases
 
-    print("You have just awoken and it is 8AM! Today is finally the day! After living in near-isolation during the COVID-19 pandemic, the vaccine is finally available! A new, more contagious variant of the virus has been getting people sick for weeks. As the head of your town's COVID response team, it is your job to open the doors to the vaccine distribution center for the public! The doors are supposed to open at 10AM and it is currently 8AM. You have about 100,000 residents in your town and have received enough for all of them to get the vaccine. Cases have been on the rise lately and the vaccine should help slow them, so you better get to the vaccine center and open the doors as soon as possible to help stop the spread, while trying to avoid contracting the virus yourself. You need to open the doors to the vaccine center before over 50% of the town contracts the virus or else it could run rampant.")
+    print("You have just awoken and it is 8AM! Today is finally the day! After living in near-isolation during the COVID-19 pandemic, the vaccine is finally available! A new, more contagious variant of the virus has been getting people sick for weeks. As the head of your town's COVID response team, it is your job to open the doors to the vaccine distribution center for the public! The doors are supposed to open at 10AM and it is currently 8AM. You have about 60,000 residents in your town and have received enough for all of them to get the vaccine. Cases have been on the rise lately and the vaccine should help slow them, so you better get to the vaccine center and open the doors as soon as possible to help stop the spread, while trying to avoid contracting the virus yourself. You need to open the doors to the vaccine center before over 50% of the town contracts the virus or else it could run rampant.")
     time.sleep(1)
     option_find_morning_transportation()
 
@@ -256,19 +255,19 @@ def vaccine_center():
 
     print("\"What a day\", you think to yourself as you walk up to the doors of the vaccine distribution center. There are already a few hundred socially-distanced people outside of the distribution center and they begin cheering upon your arrival!\nFinally after over a year of living in the pandemic, it is time to stop the spread - for good. You open up the doors to the vaccine center and begin allowing people in. Despite everything that happened, today is a great day!")
 
-    if cases >= 25000:
-        print("Unfortunately you took too long to get to the vaccine center, more than half of the town contracted the virus")
+    if cases >= 30000:
+        print("\n\nUnfortunately you took too long to get to the vaccine center, more than half of the town contracted the virus")
     else:
-        print("Good thing you got to the vaccine center quickly, the majority of the town remains uninfected.")
+        print("\n\nGood thing you got to the vaccine center quickly, the majority of the town remains uninfected.")
 
     covid_status = virus_status(covid)
 
     if covid_status == True:
         print("You let your admittance workers take over the task of letting people enter the building and walk towards the back of the building observing the procedings. All of a sudden, you start coughing a bit! That's not good! You must have gotten COVID!")
 
-        print("\n\nYou opened the doors to the Vaccine Center, but contracted the virus. You saved the community, but could not save yourself, maybe you should have worn your mask more.")
+        print("You opened the doors to the Vaccine Center, but contracted the virus. You saved the community, but could not save yourself, maybe you should have worn your mask more.")
     else:
-        print("\n\nYou Opened the Doors to the Vaccine Center and didn't contract the virus. You saved the community and kept yourself save in the process. Now, let's get that vaccine!")
+        print("You Opened the Doors to the Vaccine Center and didn't contract the virus. You saved the community and kept yourself save in the process. Now, let's get that vaccine!")
 
 
 
